@@ -14,6 +14,7 @@
 		D9FA82DB1B85905A001D8120 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9FA82DA1B85905A001D8120 /* Images.xcassets */; };
 		D9FA82DE1B85905A001D8120 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9FA82DC1B85905A001D8120 /* LaunchScreen.xib */; };
 		D9FA82EA1B85905A001D8120 /* ttlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FA82E91B85905A001D8120 /* ttlTests.swift */; };
+		D9FA82FC1B862818001D8120 /* ShowTimeToLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FA82FB1B862818001D8120 /* ShowTimeToLiveViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		D9FA82E31B85905A001D8120 /* ttlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ttlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FA82E81B85905A001D8120 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9FA82E91B85905A001D8120 /* ttlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ttlTests.swift; sourceTree = "<group>"; };
+		D9FA82FB1B862818001D8120 /* ShowTimeToLiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTimeToLiveViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				D9FA82D01B85905A001D8120 /* AppDelegate.swift */,
 				D9FA82D51B85905A001D8120 /* ViewController.swift */,
 				D9FA82D71B85905A001D8120 /* Main.storyboard */,
+				D9FA82FB1B862818001D8120 /* ShowTimeToLiveViewController.swift */,
 				D9FA82DA1B85905A001D8120 /* Images.xcassets */,
 				D9FA82DC1B85905A001D8120 /* LaunchScreen.xib */,
 				D9FA82D21B85905A001D8120 /* ttl.xcdatamodeld */,
@@ -218,6 +221,7 @@
 				D9FA82D61B85905A001D8120 /* ViewController.swift in Sources */,
 				D9FA82D41B85905A001D8120 /* ttl.xcdatamodeld in Sources */,
 				D9FA82D11B85905A001D8120 /* AppDelegate.swift in Sources */,
+				D9FA82FC1B862818001D8120 /* ShowTimeToLiveViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
