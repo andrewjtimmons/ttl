@@ -10,36 +10,56 @@ import UIKit
 
 class ShowTimeToLiveViewController: UIViewController {
 
-    let prefs = NSUserDefaults.standardUserDefaults()
-
+    let today = NSDate()
+    let expirationDate = NSUserDefaults.standardUserDefaults().objectForKey("expirationDate") as! NSDate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()    
         self.view.backgroundColor = UIColor.whiteColor()
         
         
-        if let birthday = prefs.objectForKey("birthday") as! NSDate!{
-            println(birthday)
-        }else{
-            //Nothing stored in NSUserDefaults yet. Set a value.
-            println("there aint no bday and yr code is jankay")
-        }
-
+        var label = UILabel(frame: CGRectMake(0, 0, 200, 21))
+        label.center = CGPointMake(160, 284)
+        label.textAlignment = NSTextAlignment.Center
+        label.text = "hi"
+        self.view.addSubview(label)
+        
+        var daysToLive = calculateDayDifference()
+        println(daysToLive)
+        
+        var monthsToLive = calculateMonthDifference()
+        println(monthsToLive)
+        
+        var yearsToLive = calculateYearDifference()
+        println(yearsToLive)
+    
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func calculateDayDifference()  -> String {
+        //returns number of days between today and estimated expiration date.
+        let cal = NSCalendar.currentCalendar()
+        let unit:NSCalendarUnit = .CalendarUnitDay
+        let components = cal.components(unit, fromDate: today, toDate: expirationDate, options: nil)
+        return String(components.day)
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func calculateMonthDifference()  -> String {
+        //returns number of months between today and estimated expiration date.
+        let cal = NSCalendar.currentCalendar()
+        let unit:NSCalendarUnit = .CalendarUnitMonth
+        let components = cal.components(unit, fromDate: today, toDate: expirationDate, options: nil)
+        return String(components.month)
     }
-    */
-
+    
+    func calculateYearDifference()  -> String {
+        //returns number of years between today and estimated expiration date.
+        let cal = NSCalendar.currentCalendar()
+        let unit:NSCalendarUnit = .CalendarUnitYear
+        let components = cal.components(unit, fromDate: today, toDate: expirationDate, options: nil)
+        return String(components.year)
+    }
+    
+    
+    
 }
