@@ -12,24 +12,30 @@ class ShowTimeToLiveViewController: UIViewController {
 
     let today = NSDate()
     let expirationDate = NSUserDefaults.standardUserDefaults().objectForKey("expirationDate") as! NSDate!
+    let birthday = NSUserDefaults.standardUserDefaults().objectForKey("birthday") as! NSDate!
     
     override func viewDidLoad() {
         super.viewDidLoad()    
         self.view.backgroundColor = UIColor.whiteColor()
-        //calc percent of life left
-        
+
         //calc days to live
         var daysToLive = calculateDayDifference()
         //calc months to live
         var monthsToLive = calculateMonthDifference()
         //calc years to live
         var yearsToLive = calculateYearDifference()
+        //calc days in life
+        var daysInLife = calculateDaysInLife()
+        //calc percent of life left
+        var percentOfLifeLived = 100.0 - 100*Float(daysToLive.toInt()!)/Float(daysInLife)
+        var percentOfLifeLivedString = String(format: "%.4f", percentOfLifeLived)
+        //var percentOfLifeLivedString = "\(percentOfLifeLived)"
 
         var txtView = UITextView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))
         
         txtView.textAlignment = NSTextAlignment.Center
         txtView.font =  UIFont(name: "helvetica", size: self.view.frame.size.height/16)
-        txtView.text = "You have about \n" + daysToLive + " days\n" + monthsToLive + " months\n" + yearsToLive + " years\n" + " left to live."
+        txtView.text = "You've lived about\n" + percentOfLifeLivedString + "% of your life.\n\n" + "You have roughly \n" + daysToLive + " days,\n" + monthsToLive + " months,\n or " + yearsToLive + " years\n" + " left to live."
         
         //code to make the text view frame the exact size of the content.  From http://stackoverflow.com/questions/50467/how-do-i-size-a-uitextview-to-its-content
         let fixedWidth = txtView.frame.size.width
@@ -44,10 +50,17 @@ class ShowTimeToLiveViewController: UIViewController {
         
         
         self.view.addSubview(txtView)
-        let verticalCenter = NSLayoutConstraint(item: txtView, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: 0.0)
-        self.view.addConstraint(verticalCenter)
-    }
 
+    }
+    
+    func calculateDaysInLife()  -> Float {
+        //returns number of days between day of birth and estimated expiration date.
+        let cal = NSCalendar.currentCalendar()
+        let unit:NSCalendarUnit = .CalendarUnitDay
+        let components = cal.components(unit, fromDate: birthday, toDate: expirationDate, options: nil)
+        return Float(components.day)
+    }
+   
     func calculateDayDifference()  -> String {
         //returns number of days between today and estimated expiration date.
         let cal = NSCalendar.currentCalendar()
