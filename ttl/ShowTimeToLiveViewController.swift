@@ -16,60 +16,38 @@ class ShowTimeToLiveViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()    
         self.view.backgroundColor = UIColor.whiteColor()
-        //first label
-        var label = UILabel(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/5))
-        label.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/10)
-        label.adjustsFontSizeToFitWidth = true
-        label.textAlignment = NSTextAlignment.Center
-        label.text = "You have about"
-        self.view.addSubview(label)
+        //calc percent of life left
         
         //calc days to live
         var daysToLive = calculateDayDifference()
-        println(daysToLive)
-        //create label for days to live
-        var labelDays = UILabel(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/5))
-        labelDays.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height*3/10)
-        labelDays.adjustsFontSizeToFitWidth = true
-        labelDays.textAlignment = NSTextAlignment.Center
-        labelDays.text = daysToLive + " days,"
-        self.view.addSubview(labelDays)
-        
         //calc months to live
         var monthsToLive = calculateMonthDifference()
-        println(monthsToLive)
-        //create label for months to live
-        var labelMonths = UILabel(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/5))
-        labelMonths.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height*5/10)
-        labelMonths.adjustsFontSizeToFitWidth = true
-        labelMonths.textAlignment = NSTextAlignment.Center
-        labelMonths.text = monthsToLive + " months,"
-        self.view.addSubview(labelMonths)
-        
         //calc years to live
         var yearsToLive = calculateYearDifference()
-        println(yearsToLive)
-        //create label for years to live
-        var labelYears = UILabel(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/5))
-        labelYears.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height*7/10)
-        labelYears.adjustsFontSizeToFitWidth = true
-        labelYears.textAlignment = NSTextAlignment.Center
-        labelYears.text = yearsToLive + " years"
-        self.view.addSubview(labelYears)
 
-        //create label for left to be alive
-        var labelRemaining = UILabel(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/5))
-        labelRemaining.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height*9/10)
-        labelRemaining.adjustsFontSizeToFitWidth = true
-        labelRemaining.textAlignment = NSTextAlignment.Center
-        labelRemaining.text = " left to live."
-        self.view.addSubview(labelRemaining)
-    
+        var txtView = UITextView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))
+        
+        txtView.textAlignment = NSTextAlignment.Center
+        txtView.font =  UIFont(name: "helvetica", size: self.view.frame.size.height/16)
+        txtView.text = "You have about \n" + daysToLive + " days\n" + monthsToLive + " months\n" + yearsToLive + " years\n" + " left to live."
+        
+        //code to make the text view frame the exact size of the content.  From http://stackoverflow.com/questions/50467/how-do-i-size-a-uitextview-to-its-content
+        let fixedWidth = txtView.frame.size.width
+        txtView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        let newSize = txtView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        var newFrame = txtView.frame
+        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+        txtView.frame = newFrame;
+        
+        //set center to middle of screen
+        txtView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2)
+        
+        
+        self.view.addSubview(txtView)
+        let verticalCenter = NSLayoutConstraint(item: txtView, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: 0.0)
+        self.view.addConstraint(verticalCenter)
     }
 
-    
-    
-    
     func calculateDayDifference()  -> String {
         //returns number of days between today and estimated expiration date.
         let cal = NSCalendar.currentCalendar()
