@@ -32,10 +32,10 @@ class ShowTimeToLiveViewController: UIViewController {
         //var percentOfLifeLivedString = "\(percentOfLifeLived)"
 
         var txtView = UITextView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))
-        
+        txtView.userInteractionEnabled = false
         txtView.textAlignment = NSTextAlignment.Center
         txtView.font =  UIFont(name: "helvetica", size: self.view.frame.size.height/16)
-        txtView.text = "You've lived about\n" + percentOfLifeLivedString + "% of your life.\n\n" + "You have roughly \n" + daysToLive + " days,\n" + monthsToLive + " months,\n or " + yearsToLive + " years\n" + " left to live."
+        txtView.text = "You've lived about\n" + percentOfLifeLivedString + "%\n of your life.\n\n\n" + "You have roughly \n" + daysToLive + " days\n" + " left to live."
         
         //code to make the text view frame the exact size of the content.  From http://stackoverflow.com/questions/50467/how-do-i-size-a-uitextview-to-its-content
         let fixedWidth = txtView.frame.size.width
