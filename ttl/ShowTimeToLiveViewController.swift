@@ -29,25 +29,8 @@ class ShowTimeToLiveViewController: UIViewController {
         //calc percent of life left
         var percentOfLifeLived = 100.0 - 100*Float(daysToLive.toInt()!)/Float(daysInLife)
         var percentOfLifeLivedString = String(format: "%.4f", percentOfLifeLived)
-        //var percentOfLifeLivedString = "\(percentOfLifeLived)"
-
-        var txtView = UITextView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))
-        txtView.userInteractionEnabled = false
-        txtView.textAlignment = NSTextAlignment.Center
-        txtView.font =  UIFont(name: "helvetica", size: self.view.frame.size.height/16)
-        txtView.text = "You've lived about\n" + percentOfLifeLivedString + "%\n of your life.\n\n\n" + "You have roughly \n" + daysToLive + " days\n" + " left to live."
-        
-        //code to make the text view frame the exact size of the content.  From http://stackoverflow.com/questions/50467/how-do-i-size-a-uitextview-to-its-content
-        let fixedWidth = txtView.frame.size.width
-        txtView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
-        let newSize = txtView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
-        var newFrame = txtView.frame
-        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
-        txtView.frame = newFrame;
-        
-        //set center to middle of screen
-        txtView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2)
-        
+        //build text view
+        var txtView = buildTxtView(daysToLive, monthsToLive: monthsToLive, yearsToLive: yearsToLive, percentOfLifeLivedString: percentOfLifeLivedString)
         
         self.view.addSubview(txtView)
 
@@ -86,6 +69,26 @@ class ShowTimeToLiveViewController: UIViewController {
         return String(components.year)
     }
     
-    
+    func buildTxtView(daysToLive:String, monthsToLive:String, yearsToLive:String, percentOfLifeLivedString:String) -> UITextView {
+        //builds textview and text to tell you how long you lived
+        var txtView = UITextView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))
+        txtView.userInteractionEnabled = false
+        txtView.textAlignment = NSTextAlignment.Center
+        txtView.font =  UIFont(name: "helvetica", size: self.view.frame.size.height/16)
+        txtView.text = "You've lived about\n" + percentOfLifeLivedString + "%\n of your life.\n\n\n" + "You have roughly \n" + daysToLive + " days\n" + " left to live."
+        
+        //code to make the text view frame the exact size of the content.  From http://stackoverflow.com/questions/50467/how-do-i-size-a-uitextview-to-its-content
+        let fixedWidth = txtView.frame.size.width
+        txtView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        let newSize = txtView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        var newFrame = txtView.frame
+        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+        txtView.frame = newFrame;
+        
+        //set center to middle of screen
+        txtView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2)
+        
+        return txtView
+    }
     
 }

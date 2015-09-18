@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ttl/ShowTimeToLiveViewController.swift"
-            timestampString = "464154963.411505"
+            timestampString = "464238680.246413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "72"
@@ -42,23 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ttl/ShowTimeToLiveViewController.swift"
-            timestampString = "464154963.411505"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ttl/ShowTimeToLiveViewController.swift"
-            timestampString = "464154963.411505"
+            timestampString = "464238680.246413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
@@ -74,11 +58,138 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ttl/ShowTimeToLiveViewController.swift"
-            timestampString = "464154963.411505"
+            timestampString = "464238131.603514"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "ShowTimeToLiveViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ttl.ShowTimeToLiveViewController.init (ttl.ShowTimeToLiveViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;ObjectiveC.NSBundle&gt;) -&gt; ttl.ShowTimeToLiveViewController"
+                  moduleName = "ttl"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrewjtimmons/Desktop/dev/ios/ttl/ttl/ShowTimeToLiveViewController.swift"
+                  timestampString = "464238168.553876"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ttl.ShowTimeToLiveViewController.init (ttl.ShowTimeToLiveViewController.Type)(coder : ObjectiveC.NSCoder) -&gt; ttl.ShowTimeToLiveViewController"
+                  moduleName = "ttl"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrewjtimmons/Desktop/dev/ios/ttl/ttl/ShowTimeToLiveViewController.swift"
+                  timestampString = "464238168.554113"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "59">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ttl/ShowTimeToLiveViewController.swift"
+            timestampString = "464238182.749575"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "ShowTimeToLiveViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ttl.ShowTimeToLiveViewController.today.getter : ObjectiveC.NSDate"
+                  moduleName = "ttl"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrewjtimmons/Desktop/dev/ios/ttl/ttl/ShowTimeToLiveViewController.swift"
+                  timestampString = "464238182.753049"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ttl.ShowTimeToLiveViewController.init (ttl.ShowTimeToLiveViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;ObjectiveC.NSBundle&gt;) -&gt; ttl.ShowTimeToLiveViewController"
+                  moduleName = "ttl"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrewjtimmons/Desktop/dev/ios/ttl/ttl/ShowTimeToLiveViewController.swift"
+                  timestampString = "464238182.753349"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ttl.ShowTimeToLiveViewController.init (ttl.ShowTimeToLiveViewController.Type)(coder : ObjectiveC.NSCoder) -&gt; ttl.ShowTimeToLiveViewController"
+                  moduleName = "ttl"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrewjtimmons/Desktop/dev/ios/ttl/ttl/ShowTimeToLiveViewController.swift"
+                  timestampString = "464238182.753567"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ttl/ShowTimeToLiveViewController.swift"
+            timestampString = "464238695.114946"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ttl/ShowTimeToLiveViewController.swift"
+            timestampString = "464238695.646879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
