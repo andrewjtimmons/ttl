@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         
         prefs.setObject(expirationDate, forKey:"expirationDate")
         
-        self.presentViewController(ShowTimeToLiveViewController(), animated: true, completion: nil)
+        //self.presentViewController(ShowTimeToLiveViewController(), animated: true, completion: nil)
 
         
     }
