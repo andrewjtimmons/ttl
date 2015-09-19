@@ -80,10 +80,14 @@ class ShowTimeToLiveViewController: UIViewController {
         txtView.userInteractionEnabled = false
         txtView.textAlignment = NSTextAlignment.Center
         txtView.font =  UIFont(name: "helvetica", size: self.view.frame.size.height/18)
+        
+        //customize message
+        if daysToLive.toInt()! <= 0 {
+            txtView.text = "Congrats.\nMany people do not make it this far.\nEnjoy the rest of your time to live."
+        } else {
         txtView.text = "You've lived about\n" + percentOfLifeLivedString + "%\n of your life.\n\n\n" + "You have roughly \n" + daysToLive + " days\n" + " left to live."
-        
+        }
 
-        
         //code to make the text view frame the exact size of the content.  From http://stackoverflow.com/questions/50467/how-do-i-size-a-uitextview-to-its-content
         let fixedWidth = txtView.frame.size.width
         txtView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))

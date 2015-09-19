@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9C366951BACF0D0005D6186 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C366941BACF0D0005D6186 /* MenuTableViewController.swift */; };
 		D9FA82D11B85905A001D8120 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FA82D01B85905A001D8120 /* AppDelegate.swift */; };
 		D9FA82D41B85905A001D8120 /* ttl.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9FA82D21B85905A001D8120 /* ttl.xcdatamodeld */; };
 		D9FA82D61B85905A001D8120 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FA82D51B85905A001D8120 /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D9C366941BACF0D0005D6186 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuTableViewController.swift; path = ../MenuTableViewController.swift; sourceTree = "<group>"; };
 		D9FA82CB1B85905A001D8120 /* ttl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ttl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FA82CF1B85905A001D8120 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9FA82D01B85905A001D8120 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				D9FA82D01B85905A001D8120 /* AppDelegate.swift */,
 				D9FA82D51B85905A001D8120 /* ViewController.swift */,
 				D9FA82D71B85905A001D8120 /* Main.storyboard */,
+				D9C366941BACF0D0005D6186 /* MenuTableViewController.swift */,
 				D9FA82FB1B862818001D8120 /* ShowTimeToLiveViewController.swift */,
 				D9FA82DA1B85905A001D8120 /* Images.xcassets */,
 				D9FA82DC1B85905A001D8120 /* LaunchScreen.xib */,
@@ -220,6 +223,7 @@
 			files = (
 				D9FA82D61B85905A001D8120 /* ViewController.swift in Sources */,
 				D9FA82D41B85905A001D8120 /* ttl.xcdatamodeld in Sources */,
+				D9C366951BACF0D0005D6186 /* MenuTableViewController.swift in Sources */,
 				D9FA82D11B85905A001D8120 /* AppDelegate.swift in Sources */,
 				D9FA82FC1B862818001D8120 /* ShowTimeToLiveViewController.swift in Sources */,
 			);
@@ -417,6 +421,7 @@
 				D9FA82EF1B85905A001D8120 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D9FA82F01B85905A001D8120 /* Build configuration list for PBXNativeTarget "ttlTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +430,7 @@
 				D9FA82F21B85905A001D8120 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
