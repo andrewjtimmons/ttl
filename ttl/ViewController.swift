@@ -18,6 +18,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+//        println(prefs)
+//        for key in prefs.dictionaryRepresentation().keys.array {
+//            println(key)
+//        }
+//        println(NSUserDefaults.standardUserDefaults().dictionaryRepresentation().values.array)
     
     }
 
@@ -44,6 +49,10 @@ class ViewController: UIViewController {
         var expirationDate = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: birthday, options: NSCalendarOptions(0))
         
         prefs.setObject(expirationDate, forKey:"expirationDate")
+        prefs.synchronize()
+        
+        performSegueWithIdentifier("birthdaySetSegue", sender: self)
+
         
         //self.presentViewController(ShowTimeToLiveViewController(), animated: true, completion: nil)
 

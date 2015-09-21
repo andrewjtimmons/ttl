@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>A34A8D1A-8402-4C29-824F-A9FBD05C971D</string>
 	<key>IDESourceControlProjectName</key>
-	<string>ttl</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>922301C0DFDF7B157332B9E7992D8F2D17737F13</key>
 		<string>https://github.com/andrewjtimmons/ttl.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>ttl.xcodeproj</string>
+	<string>ttl.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>922301C0DFDF7B157332B9E7992D8F2D17737F13</key>

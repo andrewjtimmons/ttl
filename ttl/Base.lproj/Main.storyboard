@@ -28,7 +28,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="When were you born?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwv-E7-5Rj">
                                 <rect key="frame" x="16" y="121" width="288" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ZQ-rf-6C6">
@@ -39,7 +39,6 @@
                                 </state>
                                 <connections>
                                     <action selector="setBirthdayValue:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Kuj-5s-6rQ"/>
-                                    <segue destination="PWt-o6-z7n" kind="modal" id="UQ1-Rm-4hx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -53,14 +52,16 @@
                             <constraint firstAttribute="centerX" secondItem="4ZQ-rf-6C6" secondAttribute="centerX" id="tNH-d9-y9g"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="DpO-MN-gGT"/>
                     <connections>
                         <outlet property="birthdayPicker" destination="meT-jB-dNx" id="WCw-AX-q7a"/>
                         <outlet property="setBirthdayButton" destination="4ZQ-rf-6C6" id="N2i-ES-UFH"/>
+                        <segue destination="PWt-o6-z7n" kind="modal" identifier="birthdaySetSegue" id="knq-4W-s5x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="234" y="366"/>
+            <point key="canvasLocation" x="286" y="366"/>
         </scene>
         <!--Show Time To Live View Controller-->
         <scene sceneID="fV4-hl-5EG">
@@ -132,7 +133,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Reset Birthday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bcX-d1-0A7">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -149,7 +150,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DRG-4e-BCB">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -166,7 +167,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Donate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6L7-pz-O0G">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -200,7 +201,25 @@
                     <view key="view" contentMode="scaleToFill" id="JKv-Xu-ibI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EIC-ZQ-EaF">
+                                <rect key="frame" x="80" y="406" width="161" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Reset Birthday">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="ResetBirthday:" destination="JiD-8M-qqo" eventType="touchUpInside" id="FYa-hU-05n"/>
+                                    <action selector="setBirthdayValue:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jOg-LW-bNL"/>
+                                    <segue destination="vXZ-lx-hvc" kind="modal" id="8Qk-Nb-Ia3"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mQe-Qw-8hb" firstAttribute="top" secondItem="EIC-ZQ-EaF" secondAttribute="bottom" constant="120" id="hZN-A1-yuu"/>
+                            <constraint firstAttribute="centerX" secondItem="EIC-ZQ-EaF" secondAttribute="centerX" constant="-0.5" id="wHF-3B-OWA"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gGA-FE-zUJ"/>
                 </viewController>
