@@ -31,11 +31,8 @@ class ShowTimeToLiveViewController: UIViewController {
         var percentOfLifeLivedString = String(format: "%.4f", percentOfLifeLived)
         //build text view
         var txtView = buildTxtView(daysToLive, monthsToLive: monthsToLive, yearsToLive: yearsToLive, percentOfLifeLivedString: percentOfLifeLivedString)
-        //build menu button
-        var menuButton = buildMenuButton()
         //add views
         self.view.addSubview(txtView)
-        self.view.addSubview(menuButton)
         
     }
     
@@ -99,14 +96,6 @@ class ShowTimeToLiveViewController: UIViewController {
         txtView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2)
         return txtView
     }
-    
-    func buildMenuButton() -> UIButton {
-        let button   = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-        button.frame = CGRectMake(self.view.frame.size.width-110,10, 100, 50)
-        button.setTitle("Menu", forState: UIControlState.Normal)
-        button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        return button
-    }
+
     
 }
