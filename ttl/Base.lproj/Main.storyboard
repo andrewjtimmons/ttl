@@ -227,10 +227,10 @@
             </objects>
             <point key="canvasLocation" x="1590" y="1042"/>
         </scene>
-        <!--View Controller-->
+        <!--About View Controller-->
         <scene sceneID="r51-ZW-e2t">
             <objects>
-                <viewController id="nhe-ML-dt8" sceneMemberID="viewController">
+                <viewController id="nhe-ML-dt8" customClass="AboutViewController" customModule="ttl" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XhX-uZ-19F"/>
                         <viewControllerLayoutGuide type="bottom" id="Mux-Xc-WkX"/>

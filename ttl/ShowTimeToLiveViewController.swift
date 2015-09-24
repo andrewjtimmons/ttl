@@ -15,8 +15,10 @@ class ShowTimeToLiveViewController: UIViewController {
     let birthday = NSUserDefaults.standardUserDefaults().objectForKey("birthday") as! NSDate!
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
+        let test = TimeToLive()
+        println(test.buildTxt())
         self.view.backgroundColor = UIColor.whiteColor()
         //calc days to live
         var daysToLive = calculateDayDifference()
