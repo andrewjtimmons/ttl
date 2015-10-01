@@ -60,17 +60,25 @@ class ShowTimeToLiveViewController: UIViewController {
     func addNotifications(numDays:Int) {
         let today = NSDate()
         let userTimeToLive = TimeToLive()
+        let qualityOfServiceClass = QOS_CLASS_BACKGROUND
+        let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
+        dispatch_async(backgroundQueue, {
+            println("This is run on the background queue")
+            
+            for day in 1..<numDays+1{
+                let (messageBody, messageFireDate) = userTimeToLive.buildTxtForFutureDate(NSDate(), daysInFuture: day)
+                var localNotification = UILocalNotification()
+                localNotification.fireDate = messageFireDate
+                localNotification.alertBody = messageBody
+                localNotification.timeZone = NSTimeZone.defaultTimeZone()
+                UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+            }
 
-        
-        for day in 1..<numDays+1{
-            let (messageBody, messageFireDate) = userTimeToLive.buildTxtForFutureDate(NSDate(), daysInFuture: day)
-            var localNotification = UILocalNotification()
-            localNotification.fireDate = messageFireDate
-            localNotification.alertBody = messageBody
-            localNotification.timeZone = NSTimeZone.defaultTimeZone()
-            UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-        }
-        println("done")
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                println("This is run on the main queue, after the previous code in outer block")
+            })
+        })
+
         //prefs.setObject(true, forKey:"notificationSet")
 
     
