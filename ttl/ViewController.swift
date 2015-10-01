@@ -46,10 +46,6 @@ class ViewController: UIViewController {
         prefs.synchronize()
         
         performSegueWithIdentifier("birthdaySetSegue", sender: self)
-
-        
-        //self.presentViewController(ShowTimeToLiveViewController(), animated: true, completion: nil)
-
         
     }
  

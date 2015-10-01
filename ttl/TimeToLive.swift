@@ -10,7 +10,7 @@ import Foundation
 
 class TimeToLive {
         
-    func buildTxt() -> String {
+    func buildTxtForToday() -> String {
         var message = ""
         let today = NSDate()
         let expirationDate = NSUserDefaults.standardUserDefaults().objectForKey("expirationDate") as! NSDate!
@@ -36,6 +36,39 @@ class TimeToLive {
         }
     
         return message
+    }
+    
+    func buildTxtForFutureDate(today: NSDate, daysInFuture: Int) -> (String, NSDate) {
+        var message = ""
+        
+        let today = today
+        var components = NSDateComponents()
+        components.setValue(daysInFuture, forComponent: NSCalendarUnit.CalendarUnitDay);
+        components.timeZone = NSTimeZone.systemTimeZone()
+        let tempFutureDate = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: today, options: NSCalendarOptions(0))
+        
+        let cal: NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let startOfFutureDate: NSDate = cal.startOfDayForDate(tempFutureDate!)
+        let futureDate: NSDate = cal.dateBySettingHour(8, minute: 0, second: 0, ofDate: startOfFutureDate, options: NSCalendarOptions())!
+        
+        let expirationDate = NSUserDefaults.standardUserDefaults().objectForKey("expirationDate") as! NSDate!
+        let birthday = NSUserDefaults.standardUserDefaults().objectForKey("birthday") as! NSDate!
+        
+        //calc days to live
+        var daysToLive = calculateDayDifference(futureDate, expirationDate: expirationDate)
+        var daysInLife = calculateDaysInLife(birthday, expirationDate: expirationDate)
+        //calc percent of life left
+        var percentOfLifeLived = caluclatePercentOfLifeLived(daysToLive, daysInLife: daysInLife)
+        var percentOfLifeLivedString = String(format: "%.4f", percentOfLifeLived)
+        
+        //customize message
+        if daysToLive.toInt()! <= 0 {
+            message = "Congrats. Many people do not make it this far. Enjoy the rest of your time to live."
+        } else {
+            message = "You've lived about " + percentOfLifeLivedString + "% of your life." + " You have roughly " + daysToLive + " days" + " left to live."
+        }
+        
+        return (message, futureDate)
     }
 
     func calculateDayDifference(today: NSDate, expirationDate: NSDate)  -> String {

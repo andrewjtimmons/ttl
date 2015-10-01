@@ -56,6 +56,7 @@ class ResetBirthdayViewController: UIViewController {
     @IBAction func ResetBirthday(sender: UIButton) {
         prefs.removeObjectForKey("birthday")
         prefs.removeObjectForKey("expirationDate")
+        prefs.removeObjectForKey("notificationSet")
         prefs.synchronize()
     }
     

@@ -9,13 +9,28 @@
 import UIKit
 
 class ShowTimeToLiveViewController: UIViewController {
- 
+   
+    let prefs = NSUserDefaults.standardUserDefaults()
+    var asdf:Int32 = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
         self.view.backgroundColor = UIColor.whiteColor()
+        
         let userTimeToLive = TimeToLive()
-        var txtView = buildTxtView(userTimeToLive.buildTxt())
+        var txtView = buildTxtView(userTimeToLive.buildTxtForToday())
         self.view.addSubview(txtView)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        //if no notification has been set then add one
+        
+        if (prefs.objectForKey("notificationSet") == nil){
+            addNotifications(365)
+        }
     }
     
     func buildTxtView(text: String) -> UITextView {
@@ -36,9 +51,30 @@ class ShowTimeToLiveViewController: UIViewController {
         var newFrame = txtView.frame
         newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height + 2*navHeight)
         txtView.frame = newFrame;
+        
         //set center to middle of screen
         txtView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2)
         return txtView
+    }
+    
+    func addNotifications(numDays:Int) {
+        let today = NSDate()
+        let userTimeToLive = TimeToLive()
+
+        
+        for day in 1..<numDays+1{
+            let (messageBody, messageFireDate) = userTimeToLive.buildTxtForFutureDate(NSDate(), daysInFuture: day)
+            var localNotification = UILocalNotification()
+            localNotification.fireDate = messageFireDate
+            localNotification.alertBody = messageBody
+            localNotification.timeZone = NSTimeZone.defaultTimeZone()
+            UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        }
+        println("done")
+        //prefs.setObject(true, forKey:"notificationSet")
+
+    
+    
     }
     
 }
