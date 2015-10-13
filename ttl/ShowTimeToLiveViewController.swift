@@ -12,6 +12,8 @@ class ShowTimeToLiveViewController: UIViewController {
    
     let prefs = NSUserDefaults.standardUserDefaults()
     var asdf:Int32 = 0
+    var txtView = UITextView(frame: CGRectZero)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -20,17 +22,31 @@ class ShowTimeToLiveViewController: UIViewController {
         super.viewWillAppear(animated);
         self.view.backgroundColor = UIColor.whiteColor()
         
-        let userTimeToLive = TimeToLive()
-        var txtView = buildTxtView(userTimeToLive.buildTxtForToday())
+        var text = getUserText()
+        txtView = buildTxtView(text)
+        
         self.view.addSubview(txtView)
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(
+            self,
+            selector: "updateView:",
+            name:UIApplicationWillEnterForegroundNotification,
+            object: nil
+        )
     }
     
     override func viewDidAppear(animated: Bool) {
-        //if no notification has been set then add one
-        
+        //if no notification has been set then add one.
         if (prefs.objectForKey("notificationSet") == nil){
             addNotifications(365)
         }
+    }
+    
+    func getUserText() -> String {
+        //builds a user object and gets how long they have to live.
+        let userTimeToLive = TimeToLive()
+        return userTimeToLive.buildTxtForToday()
     }
     
     func buildTxtView(text: String) -> UITextView {
@@ -80,9 +96,13 @@ class ShowTimeToLiveViewController: UIViewController {
         })
 
         //prefs.setObject(true, forKey:"notificationSet")
-
     
+    }
     
+    func updateView(sender : AnyObject) {
+        //this fires when the app transitions from background to foreground.
+        var text = getUserText()
+        txtView.text = text
     }
     
 }
