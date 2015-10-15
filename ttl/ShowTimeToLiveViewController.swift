@@ -111,7 +111,7 @@ class ShowTimeToLiveViewController: UIViewController {
             })
         })
 
-        //prefs.setObject(true, forKey:"notificationSet")
+        prefs.setObject(true, forKey:"notificationSet")
     
     }
     

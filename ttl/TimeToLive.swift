@@ -65,7 +65,7 @@ class TimeToLive {
         if daysToLive.toInt()! <= 0 {
             message = "Congrats. Many people do not make it this far. Enjoy the rest of your time to live."
         } else {
-            message = "You've lived about " + percentOfLifeLivedString + "% of your life." + " You have roughly " + daysToLive + " days" + " left to live."
+            message = "You've lived about " + percentOfLifeLivedString + " percent of your life." + " You have roughly " + daysToLive + " days" + " left to live."
         }
         
         return (message, futureDate)
