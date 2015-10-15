@@ -11,7 +11,6 @@ import UIKit
 class ShowTimeToLiveViewController: UIViewController {
    
     let prefs = NSUserDefaults.standardUserDefaults()
-    var asdf:Int32 = 0
     var txtView = UITextView(frame: CGRectZero)
     
     override func viewDidLoad() {
