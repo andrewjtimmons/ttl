@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     let prefs = NSUserDefaults.standardUserDefaults()
-
+    var appeared = false
     @IBOutlet weak var birthdayPicker: UIDatePicker!
     @IBOutlet weak var setBirthdayButton: UIButton!
     
@@ -20,6 +20,10 @@ class ViewController: UIViewController {
     
     }
 
+    override func viewDidAppear(animated: Bool) {
+        appeared = true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -46,7 +50,6 @@ class ViewController: UIViewController {
         prefs.synchronize()
         
         performSegueWithIdentifier("birthdaySetSegue", sender: self)
-        
     }
  
 
