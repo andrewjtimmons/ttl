@@ -63,10 +63,13 @@ class AddNotificationsViewController: UIViewController {
                     UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
                 }
                 println("done scheduiling")
+                self.prefs.setObject(true, forKey:"notificationSet")
+                self.performSegueWithIdentifier("notificationsSetSegue", sender: self)
+
             })
         })
-        
-        prefs.setObject(true, forKey:"notificationSet")
+
+    
         
     }
 

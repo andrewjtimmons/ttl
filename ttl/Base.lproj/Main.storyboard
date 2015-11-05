@@ -62,7 +62,6 @@
                                 </state>
                                 <connections>
                                     <action selector="setBirthdayValue:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Kuj-5s-6rQ"/>
-                                    <segue destination="eTb-Hm-TuC" kind="modal" identifier="birthdaySetSegue" id="3iN-nX-2Us"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -80,6 +79,7 @@
                     <connections>
                         <outlet property="birthdayPicker" destination="meT-jB-dNx" id="WCw-AX-q7a"/>
                         <outlet property="setBirthdayButton" destination="4ZQ-rf-6C6" id="N2i-ES-UFH"/>
+                        <segue destination="fqO-R7-pda" kind="modal" identifier="birthdaySetSegue" id="ucF-Jb-ghO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -226,10 +226,10 @@
             </objects>
             <point key="canvasLocation" x="1602" y="1745"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Notifications View Controller-->
         <scene sceneID="eA6-Ip-M72">
             <objects>
-                <viewController id="fqO-R7-pda" sceneMemberID="viewController">
+                <viewController id="fqO-R7-pda" customClass="AddNotificationsViewController" customModule="ttl" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vm2-Bn-pVe"/>
                         <viewControllerLayoutGuide type="bottom" id="hIs-qN-5IU"/>
@@ -239,10 +239,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="eTb-Hm-TuC" kind="modal" identifier="notificationsSetSegue" id="evm-P6-UCQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4p-1q-4Xm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1627" y="366"/>
+            <point key="canvasLocation" x="1585" y="366"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FNN-br-N1l">
@@ -270,6 +273,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="9lv-9e-P8X"/>
-        <segue reference="3iN-nX-2Us"/>
+        <segue reference="evm-P6-UCQ"/>
     </inferredMetricsTieBreakers>
 </document>
