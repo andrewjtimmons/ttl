@@ -84,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1170" y="366"/>
+            <point key="canvasLocation" x="1163" y="366"/>
         </scene>
         <!--Show Time To Live View Controller-->
         <scene sceneID="fV4-hl-5EG">
@@ -251,7 +251,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ijl-WZ-5wO"/>
         <segue reference="9lv-9e-P8X"/>
+        <segue reference="3iN-nX-2Us"/>
     </inferredMetricsTieBreakers>
 </document>
