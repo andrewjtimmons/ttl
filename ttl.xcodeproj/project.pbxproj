@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D94937191C041E710064BCEC /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94937181C041E710064BCEC /* UIViewExtensions.swift */; };
 		D984F0E11BB058C40092FC31 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D984F0E01BB058C40092FC31 /* AboutViewController.swift */; };
 		D984F14D1BB442BE0092FC31 /* TimeToLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D984F14C1BB442BE0092FC31 /* TimeToLive.swift */; };
 		D9C366C81BAF9A05005D6186 /* ResetBirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C366C71BAF9A05005D6186 /* ResetBirthdayViewController.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D94937181C041E710064BCEC /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		D984F0E01BB058C40092FC31 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		D984F14C1BB442BE0092FC31 /* TimeToLive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeToLive.swift; sourceTree = "<group>"; };
 		D9C366C71BAF9A05005D6186 /* ResetBirthdayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetBirthdayViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				D9FA82CE1B85905A001D8120 /* Supporting Files */,
 				D9DF6EA31BCFFB2400F78D5C /* startViewController.swift */,
 				D9F51D7D1BEBB67A00F92F6D /* AddNotificationsViewController.swift */,
+				D94937181C041E710064BCEC /* UIViewExtensions.swift */,
 			);
 			path = ttl;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				D9FA82D41B85905A001D8120 /* ttl.xcdatamodeld in Sources */,
 				D984F14D1BB442BE0092FC31 /* TimeToLive.swift in Sources */,
 				D9FA82D11B85905A001D8120 /* AppDelegate.swift in Sources */,
+				D94937191C041E710064BCEC /* UIViewExtensions.swift in Sources */,
 				D9FA82FC1B862818001D8120 /* ShowTimeToLiveViewController.swift in Sources */,
 				D9C366C81BAF9A05005D6186 /* ResetBirthdayViewController.swift in Sources */,
 				D9F51D7E1BEBB67A00F92F6D /* AddNotificationsViewController.swift in Sources */,

@@ -10,11 +10,44 @@ import UIKit
 
 class AddNotificationsViewController: UIViewController {
     let prefs = NSUserDefaults.standardUserDefaults()
+    var txtView = UITextView(frame: CGRectZero)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        self.view.backgroundColor = UIColor.whiteColor()
+        
+        txtView = buildTxtView("Loading")
+        
+        self.view.addSubview(txtView)
+              
+    }
+    
+    func buildTxtView(text: String) -> UITextView {
+        //builds textview and text to tell you how long you lived
+        
+        var txtView = UITextView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))
+        txtView.userInteractionEnabled = false
+        txtView.textAlignment = NSTextAlignment.Center
+        txtView.font =  UIFont(name: "helvetica", size: self.view.frame.size.height/18)
+        txtView.text = text
+        
+        //code to make the text view frame the exact size of the content.  From http://stackoverflow.com/questions/50467/how-do-i-size-a-uitextview-to-its-content
+        let fixedWidth = txtView.frame.size.width
+        txtView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        let newSize = txtView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        var newFrame = txtView.frame
+        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+        txtView.frame = newFrame;
+        
+        //set center to middle of screen
+        txtView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2)
+        return txtView
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,6 +57,8 @@ class AddNotificationsViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         //if no notification has been set then add one.
+        txtView.fadeOut()
+
         if (prefs.objectForKey("notificationSet") == nil){
             addNotifications(365)
         }
@@ -44,7 +79,7 @@ class AddNotificationsViewController: UIViewController {
                 //localNotification.fireDate = messageFireDate
                 
                 let later = NSCalendar.currentCalendar().dateByAddingUnit(
-                    .CalendarUnitMinute,
+                    .CalendarUnitDay,
                     value: day,
                     toDate: today,
                     options: NSCalendarOptions(0))
@@ -72,6 +107,8 @@ class AddNotificationsViewController: UIViewController {
     
         
     }
+    
+
 
     /*
     // MARK: - Navigation
