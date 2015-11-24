@@ -2,9 +2,7 @@
 //  TimeToLive.swift
 //  ttl
 //
-//  Created by andrew timmons on 9/24/15.
-//  Copyright (c) 2015 andy. All rights reserved.
-//
+
 
 import Foundation
 

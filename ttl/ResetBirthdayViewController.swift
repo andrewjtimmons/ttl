@@ -2,9 +2,6 @@
 //  ResetBirthdayViewController.swift
 //  ttl
 //
-//  Created by andrew timmons on 9/20/15.
-//  Copyright (c) 2015 andy. All rights reserved.
-//
 
 import UIKit
 
