@@ -54,6 +54,7 @@ class ResetBirthdayViewController: UIViewController {
         prefs.removeObjectForKey("birthday")
         prefs.removeObjectForKey("expirationDate")
         prefs.removeObjectForKey("notificationSet")
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
         prefs.synchronize()
     }
     

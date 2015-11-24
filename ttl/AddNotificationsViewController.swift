@@ -76,7 +76,7 @@ class AddNotificationsViewController: UIViewController {
                 //localNotification.fireDate = messageFireDate
                 
                 let later = NSCalendar.currentCalendar().dateByAddingUnit(
-                    .CalendarUnitDay,
+                    .CalendarUnitMinute,
                     value: day,
                     toDate: today,
                     options: NSCalendarOptions(0))

@@ -16,10 +16,6 @@ class TimeToLive {
         
         //calc days to live
         var daysToLive = calculateDayDifference(today, expirationDate: expirationDate)
-        //calc months to live
-        //var monthsToLive = calculateMonthDifference()
-        //calc years to live
-        //var yearsToLive = calculateYearDifference()
         //calc days in life
         var daysInLife = calculateDaysInLife(birthday, expirationDate: expirationDate)
         //calc percent of life left
