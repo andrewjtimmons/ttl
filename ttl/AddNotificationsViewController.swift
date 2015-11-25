@@ -19,7 +19,7 @@ class AddNotificationsViewController: UIViewController {
         super.viewWillAppear(animated);
         self.view.backgroundColor = UIColor.whiteColor()
         
-        txtView = buildTxtView("Loading")
+        txtView = buildTxtView("Loading \n\n Take a few deep breaths and check back in a moment")
         
         self.view.addSubview(txtView)
               
