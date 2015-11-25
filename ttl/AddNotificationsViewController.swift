@@ -55,7 +55,6 @@ class AddNotificationsViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         //if no notification has been set then add one.
         txtView.fadeOut()
-
         if (prefs.objectForKey("notificationSet") == nil){
             addNotifications(365)
         }
@@ -76,7 +75,7 @@ class AddNotificationsViewController: UIViewController {
                 //localNotification.fireDate = messageFireDate
                 
                 let later = NSCalendar.currentCalendar().dateByAddingUnit(
-                    .CalendarUnitMinute,
+                    .CalendarUnitDay,
                     value: day,
                     toDate: today,
                     options: NSCalendarOptions(0))
