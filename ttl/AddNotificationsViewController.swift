@@ -54,7 +54,6 @@ class AddNotificationsViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         //if no notification has been set then add one.
-        txtView.fadeOut()
         if (prefs.objectForKey("notificationSet") == nil){
             addNotifications(365)
         }
@@ -63,42 +62,57 @@ class AddNotificationsViewController: UIViewController {
     func addNotifications(numDays:Int) {
         let today = NSDate()
         let userTimeToLive = TimeToLive()
-        let qualityOfServiceClass = QOS_CLASS_UTILITY
-        let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
-        var notificationArray = [UILocalNotification]()
-        dispatch_async(backgroundQueue, {
-            println("This is run on the background queue")
-            
-            for day in 1..<numDays+1{
-                let (messageBody, messageFireDate) = userTimeToLive.buildTxtForFutureDate(NSDate(), daysInFuture: day)
-                var localNotification = UILocalNotification()
-                //localNotification.fireDate = messageFireDate
-                
-                let later = NSCalendar.currentCalendar().dateByAddingUnit(
-                    .CalendarUnitDay,
-                    value: day,
-                    toDate: today,
-                    options: NSCalendarOptions(0))
-                localNotification.fireDate = later
-                
-                localNotification.alertBody = messageBody
-                localNotification.timeZone = NSTimeZone.defaultTimeZone()
-                notificationArray.append(localNotification)
-                //UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-            }
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                println("This is run on the main queue, after the previous code in outer block")
-                println(notificationArray.count)
-                for localNotification in notificationArray {
-                    UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-                }
-                println("done scheduiling")
-                self.prefs.setObject(true, forKey:"notificationSet")
-                self.performSegueWithIdentifier("notificationsSetSegue", sender: self)
-
-            })
-        })
+//        let qualityOfServiceClass = QOS_CLASS_UTILITY
+//        let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
+//        var notificationArray = [UILocalNotification]()
+        
+        for day in 1..<numDays+1{
+            let (messageBody, messageFireDate) = userTimeToLive.buildTxtForFutureDate(NSDate(), daysInFuture: day)
+            var localNotification = UILocalNotification()
+            localNotification.fireDate = messageFireDate
+            localNotification.alertBody = messageBody
+            localNotification.timeZone = NSTimeZone.defaultTimeZone()
+            UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+            println(messageFireDate)
+        }
+        println("done")
+        self.prefs.setObject(true, forKey:"notificationSet")
+        self.performSegueWithIdentifier("notificationsSetSegue", sender: self)
+        
+//        dispatch_async(backgroundQueue, {
+//            println("This is run on the background queue")
+//            
+//            for day in 1..<numDays+1{
+//                let (messageBody, messageFireDate) = userTimeToLive.buildTxtForFutureDate(NSDate(), daysInFuture: day)
+//                var localNotification = UILocalNotification()
+//                localNotification.fireDate = messageFireDate
+//                println(messageFireDate)
+////
+////                let later = NSCalendar.currentCalendar().dateByAddingUnit(
+////                    .CalendarUnitDay,
+////                    value: day,
+////                    toDate: today,
+////                    options: NSCalendarOptions(0))
+////                //localNotification.fireDate = later
+//                
+//                localNotification.alertBody = messageBody
+//                localNotification.timeZone = NSTimeZone.defaultTimeZone()
+//                notificationArray.append(localNotification)
+//                //UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+//            }
+//            
+//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                println("This is run on the main queue, after the previous code in outer block")
+//                println(notificationArray.count)
+//                for localNotification in notificationArray {
+//                    UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+//                }
+//                println("done scheduiling")
+//                self.prefs.setObject(true, forKey:"notificationSet")
+//                self.performSegueWithIdentifier("notificationsSetSegue", sender: self)
+//
+//            })
+//        })
 
     
         
