@@ -19,7 +19,7 @@ class ShowTimeToLiveViewController: UIViewController {
         super.viewWillAppear(animated);
         self.view.backgroundColor = UIColor.whiteColor()
         
-        var text = getUserText()
+        let text = getUserText()
         txtView = buildTxtView(text)
         
         self.view.addSubview(txtView)
@@ -43,9 +43,9 @@ class ShowTimeToLiveViewController: UIViewController {
     func buildTxtView(text: String) -> UITextView {
         //builds textview and text to tell you how long you lived
         
-        var navHeight = self.navigationController!.navigationBar.frame.size.height
+        let navHeight = self.navigationController!.navigationBar.frame.size.height
 
-        var txtView = UITextView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))
+        let txtView = UITextView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))
         txtView.userInteractionEnabled = false
         txtView.textAlignment = NSTextAlignment.Center
         txtView.font =  UIFont(name: "helvetica", size: self.view.frame.size.height/18)
@@ -67,7 +67,7 @@ class ShowTimeToLiveViewController: UIViewController {
        
     func updateView(sender : AnyObject) {
         //this fires when the app transitions from background to foreground.
-        var text = getUserText()
+        let text = getUserText()
         txtView.text = text
     }
     

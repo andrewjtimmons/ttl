@@ -40,8 +40,8 @@ class ViewController: UIViewController {
         prefs.setObject(birthday, forKey:"birthday")
         
         var components = NSDateComponents()
-        components.setValue(75, forComponent: NSCalendarUnit.CalendarUnitYear);
-        var expirationDate = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: birthday, options: NSCalendarOptions(0))
+        components.setValue(75, forComponent: NSCalendarUnit.Year);
+        var expirationDate = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: birthday, options: NSCalendarOptions(rawValue: 0))
         
         prefs.setObject(expirationDate, forKey:"expirationDate")
         prefs.synchronize()

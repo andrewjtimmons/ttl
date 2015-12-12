@@ -14,7 +14,7 @@ class ResetBirthdayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var txtView = buildTxtView()
+        let txtView = buildTxtView()
         self.view.addSubview(txtView)
     }
     
@@ -27,9 +27,9 @@ class ResetBirthdayViewController: UIViewController {
     func buildTxtView() -> UITextView {
         //builds textview for asking if user wants to redo birthday
         
-        var navHeight = self.navigationController!.navigationBar.frame.size.height
+        let navHeight = self.navigationController!.navigationBar.frame.size.height
         
-        var txtView = UITextView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))
+        let txtView = UITextView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))
         txtView.userInteractionEnabled = false
         txtView.textAlignment = NSTextAlignment.Center
         txtView.font =  UIFont(name: "helvetica", size: self.view.frame.size.height/18)
