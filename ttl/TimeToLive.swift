@@ -20,13 +20,16 @@ class TimeToLive {
         let daysInLife = calculateDaysInLife(birthday, expirationDate: expirationDate)
         //calc percent of life left
         let percentOfLifeLived = caluclatePercentOfLifeLived(daysToLive, daysInLife: daysInLife)
-        let percentOfLifeLivedString = String(format: "%.4f", percentOfLifeLived)
+        let percentOfLifeLivedString = String(format: "%.1f", percentOfLifeLived)
 
         //customize message
         if Int(daysToLive)! <= 0 {
             message = "Congrats.\nMany people do not make it this far.\nEnjoy the rest of your time to live."
         } else {
+            message =  "You have roughly \n" + daysToLive + " days\n" + " left to live.\n\n\n" + "You've lived about\n" + percentOfLifeLivedString + "%\n of your life."
+            /*
             message = "You've lived about\n" + percentOfLifeLivedString + "%\n of your life.\n\n\n" + "You have roughly \n" + daysToLive + " days\n" + " left to live."
+            */
         }
     
         return message
@@ -59,7 +62,7 @@ class TimeToLive {
         if Int(daysToLive)! <= 0 {
             message = "Congrats. Many people do not make it this far. Enjoy the rest of your time to live."
         } else {
-            message = "You've lived about " + percentOfLifeLivedString + " percent of your life." + " You have roughly " + daysToLive + " days" + " left to live."
+            message = "You have roughly " + daysToLive + " days" + " left to live."
         }
         
         return (message, futureDate)
