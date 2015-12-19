@@ -8,7 +8,6 @@ import UIKit
 class ViewController: UIViewController {
 
     let prefs = NSUserDefaults.standardUserDefaults()
-    var appeared = false
     @IBOutlet weak var birthdayPicker: UIDatePicker!
     @IBOutlet weak var setBirthdayButton: UIButton!
     
@@ -18,7 +17,10 @@ class ViewController: UIViewController {
     }
 
     override func viewDidAppear(animated: Bool) {
-        appeared = true
+        // If the user deletes the app and reinstalls old notifications can be present.
+        // This gets rid of them.
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
+
     }
     
     override func didReceiveMemoryWarning() {

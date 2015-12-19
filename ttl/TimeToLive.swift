@@ -27,9 +27,6 @@ class TimeToLive {
             message = "Congrats.\nMany people do not make it this far.\nEnjoy the rest of your time to live."
         } else {
             message =  "You have roughly \n" + daysToLive + " days\n" + " left to live.\n\n\n" + "You've lived about\n" + percentOfLifeLivedString + "%\n of your life."
-            /*
-            message = "You've lived about\n" + percentOfLifeLivedString + "%\n of your life.\n\n\n" + "You have roughly \n" + daysToLive + " days\n" + " left to live."
-            */
         }
     
         return message
