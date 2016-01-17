@@ -27,8 +27,8 @@ class AboutViewController: UIViewController {
         
         let txtView = UITextView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))
         txtView.userInteractionEnabled = false
-        txtView.textAlignment = NSTextAlignment.Center
-        txtView.font =  UIFont(name: "helvetica", size: self.view.frame.size.height/30)
+        txtView.textAlignment = NSTextAlignment.Left
+        txtView.font =  UIFont(name: "helvetica", size: self.view.frame.size.height/31)
         
         txtView.text = "This app does not tell you exactly how long you will live.  It just uses a rough estimate based on how long other human beings have lived.  You will most likely die before or after the estimated date.\n\nThe goal of this app is to help you to think positively about how you spend your time on earth and what you do with your life.\n\nAll data you put in this app is stored locally on your device.  The creator of this app will never use any of your data for commercial purposes.\n\nHave a great life."
         
@@ -37,7 +37,7 @@ class AboutViewController: UIViewController {
         txtView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
         let newSize = txtView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
         var newFrame = txtView.frame
-        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height + 2*navHeight)
+        newFrame.size = CGSize(width: max(newSize.width, fixedWidth) - 20, height: newSize.height + 2*navHeight)
         txtView.frame = newFrame;
         
         //set center to middle of screen
