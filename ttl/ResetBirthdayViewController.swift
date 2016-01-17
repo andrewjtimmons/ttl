@@ -34,7 +34,7 @@ class ResetBirthdayViewController: UIViewController {
         txtView.textAlignment = NSTextAlignment.Center
         txtView.font =  UIFont(name: "helvetica", size: self.view.frame.size.height/18)
         
-        txtView.text = "Are you sure you want to reset your birthday?"
+        txtView.text = "Did you get reborn and get a new birthday? \n\n Click below to change the date."
         
         //code to make the text view frame the exact size of the content.  From http://stackoverflow.com/questions/50467/how-do-i-size-a-uitextview-to-its-content
         let fixedWidth = txtView.frame.size.width
