@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Start View Controller-->
@@ -99,8 +100,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RN6-b4-1ER">
-                                <rect key="frame" x="20" y="72" width="240" height="128"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RN6-b4-1ER">
+                                <rect key="frame" x="0.0" y="64" width="320" height="238"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="wUL-l1-P61" id="qhH-ms-YwZ"/>
                                 </connections>
@@ -111,6 +113,12 @@
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RN6-b4-1ER" firstAttribute="leading" secondItem="2gO-AI-2af" secondAttribute="leadingMargin" constant="-20" id="IPm-60-YOi"/>
+                            <constraint firstItem="dMx-bg-VUY" firstAttribute="top" secondItem="RN6-b4-1ER" secondAttribute="bottom" constant="266" id="eGt-4N-cFV"/>
+                            <constraint firstItem="RN6-b4-1ER" firstAttribute="top" secondItem="BZc-Tz-iWJ" secondAttribute="bottom" id="gBN-1F-nLd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RN6-b4-1ER" secondAttribute="trailing" constant="-20" id="p7N-Fz-83w"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GTo-lr-mPC">
                         <barButtonItem key="rightBarButtonItem" title="Menu" id="7cI-Ak-6d2">
