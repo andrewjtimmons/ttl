@@ -6,69 +6,37 @@
 
 import UIKit
 
-class ShowTimeToLiveViewController: UIViewController {
-   
+class ShowTimeToLiveViewController: UIViewController, UIScrollViewDelegate {
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var pageControl: UIPageControl!
+    
     let prefs = NSUserDefaults.standardUserDefaults()
-    var txtView = UITextView(frame: CGRectZero)
+    
+    var pageStrings: [String] = []
+    var pageViews: [UITextView?] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated);
-        self.view.backgroundColor = UIColor.whiteColor()
         
-        let text = getUserText()
-        txtView = buildTxtView(text)
+        pageStrings = [String("lol"),
+            String("omg")]
         
-        self.view.addSubview(txtView)
+        let pageCount = pageStrings.count
         
-        //listener to refresh view when returning from background state.
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.addObserver(
-            self,
-            selector: "updateView:",
-            name:UIApplicationWillEnterForegroundNotification,
-            object: nil
-        )
-    }
-    
-    func getUserText() -> String {
-        //builds a user object and gets how long they have to live.
-        let userTimeToLive = TimeToLive()
-        return userTimeToLive.buildTxtForToday()
-    }
-    
-    func buildTxtView(text: String) -> UITextView {
-        //builds textview and text to tell you how long you lived
-        
-        let navHeight = self.navigationController!.navigationBar.frame.size.height
+        pageControl.currentPage = 0
+        pageControl.numberOfPages = pageCount
 
+        for _ in 0..<pageCount {
+            pageViews.append(nil)
+        }
+        
         let txtView = UITextView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))
         txtView.userInteractionEnabled = false
         txtView.textAlignment = NSTextAlignment.Center
         txtView.font =  UIFont(name: "helvetica", size: self.view.frame.size.height/18)
-        txtView.text = text
+        txtView.text = pageStrings[0]
 
-        //code to make the text view frame the exact size of the content.  From http://stackoverflow.com/questions/50467/how-do-i-size-a-uitextview-to-its-content
-        let fixedWidth = txtView.frame.size.width
-        txtView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
-        let newSize = txtView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
-        var newFrame = txtView.frame
-        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height + 2*navHeight)
-        txtView.frame = newFrame;
+        scrollView.addSubview(txtView)
         
-        //set center to middle of screen
-        txtView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2)
-        return txtView
     }
-    
-       
-    func updateView(sender : AnyObject) {
-        //this fires when the app transitions from background to foreground.
-        let text = getUserText()
-        txtView.text = text
-    }
-    
 }

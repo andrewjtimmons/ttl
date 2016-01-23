@@ -98,6 +98,18 @@
                     <view key="view" contentMode="scaleToFill" id="2gO-AI-2af">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RN6-b4-1ER">
+                                <rect key="frame" x="20" y="72" width="240" height="128"/>
+                                <connections>
+                                    <outlet property="delegate" destination="wUL-l1-P61" id="qhH-ms-YwZ"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="004-Ez-ljY">
+                                <rect key="frame" x="141" y="265" width="39" height="37"/>
+                                <color key="tintColor" red="0.99404101444268245" green="1" blue="0.98419187176156586" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="GTo-lr-mPC">
@@ -107,6 +119,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="pageControl" destination="004-Ez-ljY" id="sA5-pc-TE5"/>
+                        <outlet property="scrollView" destination="RN6-b4-1ER" id="bSH-Wf-Chk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YAn-Gp-DSE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
