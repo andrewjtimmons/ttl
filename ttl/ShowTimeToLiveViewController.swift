@@ -18,25 +18,117 @@ class ShowTimeToLiveViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 1
         pageStrings = [String("lol"),
             String("omg")]
         
         let pageCount = pageStrings.count
         
+        // 2
         pageControl.currentPage = 0
         pageControl.numberOfPages = pageCount
 
+        // 3
         for _ in 0..<pageCount {
             pageViews.append(nil)
         }
         
-        let txtView = UITextView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))
-        txtView.userInteractionEnabled = false
-        txtView.textAlignment = NSTextAlignment.Center
-        txtView.font =  UIFont(name: "helvetica", size: self.view.frame.size.height/18)
-        txtView.text = pageStrings[0]
-
-        scrollView.addSubview(txtView)
+        // 4
+        let pagesScrollViewSize = scrollView.frame.size
+        scrollView.contentSize = CGSize(width: pagesScrollViewSize.width * CGFloat(pageCount),
+            height: pagesScrollViewSize.height)
         
+        // 5
+        loadVisiblePages()
+
     }
+    
+    
+    func loadPage(page: Int) {
+        if page < 0 || page >= pageStrings.count {
+            // If it's outside the range of what you have to display, then do nothing
+            return
+        }
+        
+        // 1
+        if let pageView = pageViews[page] {
+            // Do nothing. The view is already loaded.
+        } else {
+            // 2
+            var frame = scrollView.bounds
+            frame.origin.x = frame.size.width * CGFloat(page)
+            frame.origin.y = 0.0
+            
+            // 3
+            let textView = UITextView()
+            textView.text = pageStrings[page]
+            
+            let newPageView = textView
+            newPageView.contentMode = .ScaleAspectFit
+            newPageView.frame = frame
+            scrollView.addSubview(newPageView)
+            
+            // 4
+            pageViews[page] = newPageView
+        }
+    }
+    
+    func loadVisiblePages() {
+        // First, determine which page is currently visible
+        let pageWidth = scrollView.frame.size.width
+        let page = Int(floor((scrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
+        
+        // Update the page control
+        pageControl.currentPage = page
+        
+        // Work out which pages you want to load
+        let firstPage = page - 1
+        let lastPage = page + 1
+        
+        // Purge anything before the first page
+        for var index = 0; index < firstPage; ++index {
+            purgePage(index)
+        }
+        
+        // Load pages in our range
+        for index in firstPage...lastPage {
+            loadPage(index)
+        }
+        
+        // Purge anything after the last page
+        for var index = lastPage+1; index < pageStrings.count; ++index {
+            purgePage(index)
+        }
+    }
+    
+    
+    func purgePage(page: Int) {
+        if page < 0 || page >= pageStrings.count {
+            // If it's outside the range of what you have to display, then do nothing
+            return
+        }
+        
+        // Remove a page from the scroll view and reset the container array
+        if let pageView = pageViews[page] {
+            pageView.removeFromSuperview()
+            pageViews[page] = nil
+        }
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView!) {
+        // Load the pages that are now on screen
+        loadVisiblePages()
+    }
+
+    
+    
+//    
+//    
+//    let txtView = UITextView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))
+//    txtView.userInteractionEnabled = false
+//    txtView.textAlignment = NSTextAlignment.Center
+//    txtView.font =  UIFont(name: "helvetica", size: self.view.frame.size.height/18)
+//    txtView.text = pageStrings[0]
+//    
+//    scrollView.addSubview(txtView)
 }
