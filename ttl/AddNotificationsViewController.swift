@@ -59,7 +59,13 @@ class AddNotificationsViewController: UIViewController {
     }
     
     func addNotifications(numDays:Int) {
-        //let today = NSDate()
+        // add notifications so the user can see them daily.
+        // TODO: Make notifications faster and remove delay
+        // Notifications cannot be added in the background to fire in the foreground.
+        // Different devices execute this code at different speeds.  Newer devices are almost
+        // instantanious but still create some lag.  This screen solves that for now, but
+        // could use a refactor later.
+        
         let userTimeToLive = TimeToLive()
         for day in 1..<numDays+1{
             let (messageBody, messageFireDate) = userTimeToLive.buildTxtForFutureDate(NSDate(), daysInFuture: day)
@@ -68,11 +74,17 @@ class AddNotificationsViewController: UIViewController {
             localNotification.alertBody = messageBody
             localNotification.timeZone = NSTimeZone.defaultTimeZone()
             UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-            print(messageFireDate)
         }
-        print("done")
-        self.prefs.setObject(true, forKey:"notificationSet")
-        self.performSegueWithIdentifier("notificationsSetSegue", sender: self)
+
+        // add a small delay so user can read the message and have a moment.
+        let delay = 3 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            
+            self.prefs.setObject(true, forKey:"notificationSet")
+            self.performSegueWithIdentifier("notificationsSetSegue", sender: self)
+
+        }
         
     }
     
