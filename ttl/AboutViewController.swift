@@ -12,16 +12,10 @@ class AboutViewController: UIViewController {
         super.viewDidLoad()
         let txtView = buildTxtView()
         self.view.addSubview(txtView)
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-        
+    
     func buildTxtView() -> UITextView {
-        //builds textview for asking if user wants to redo birthday
+        //builds textview for showing about menu text
         
         let navHeight = self.navigationController!.navigationBar.frame.size.height
         
@@ -37,11 +31,12 @@ class AboutViewController: UIViewController {
         txtView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
         let newSize = txtView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
         var newFrame = txtView.frame
-        newFrame.size = CGSize(width: max(newSize.width, fixedWidth) - 20, height: newSize.height + 2*navHeight)
+        var maxWidth = max(newSize.width, fixedWidth)
+        newFrame.size = CGSize(width: maxWidth - maxWidth/10, height: newSize.height + 2*navHeight)
         txtView.frame = newFrame;
         
         //set center to middle of screen
-        txtView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2)
+        txtView.center = CGPointMake(self.view.frame.size.width/2, (newFrame.size.height/2)+maxWidth/20)
         
         return txtView
     }
