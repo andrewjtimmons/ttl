@@ -188,27 +188,12 @@
                     <view key="view" contentMode="scaleToFill" id="JKv-Xu-ibI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EIC-ZQ-EaF">
-                                <rect key="frame" x="80" y="406" width="161" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Reset Birthday">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="ResetBirthday:" destination="JiD-8M-qqo" eventType="touchUpInside" id="FYa-hU-05n"/>
-                                    <action selector="setBirthdayValue:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jOg-LW-bNL"/>
-                                    <segue destination="vXZ-lx-hvc" kind="modal" id="8Qk-Nb-Ia3"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="mQe-Qw-8hb" firstAttribute="top" secondItem="EIC-ZQ-EaF" secondAttribute="bottom" constant="120" id="hZN-A1-yuu"/>
-                            <constraint firstAttribute="centerX" secondItem="EIC-ZQ-EaF" secondAttribute="centerX" constant="-0.5" id="wHF-3B-OWA"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gGA-FE-zUJ"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="resetBirthdaySegue" id="u90-XD-A7C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Z5-xH-dmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -274,7 +259,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9lv-9e-P8X"/>
         <segue reference="evm-P6-UCQ"/>
+        <segue reference="u90-XD-A7C"/>
     </inferredMetricsTieBreakers>
 </document>
