@@ -3,7 +3,6 @@
 //  ttl
 //
 
-
 import Foundation
 
 class TimeToLive {
@@ -18,7 +17,7 @@ class TimeToLive {
         
         //calc days to live
         let daysToLive = calculateDayDifference(today, expirationDate: expirationDate)
-        //calc days in life
+        //calc total days in life
         let daysInLife = calculateDaysInLife(birthday, expirationDate: expirationDate)
         //calc percent of life left
         let percentOfLifeLived = caluclatePercentOfLifeLived(daysToLive, daysInLife: daysInLife)
@@ -52,7 +51,7 @@ class TimeToLive {
         let expirationDate = NSUserDefaults.standardUserDefaults().objectForKey("expirationDate") as! NSDate!
         let birthday = NSUserDefaults.standardUserDefaults().objectForKey("birthday") as! NSDate!
         
-        //calc days to live
+        //calc days to live and in life
         var daysToLive = calculateDayDifference(futureDate, expirationDate: expirationDate)
         var daysInLife = calculateDaysInLife(birthday, expirationDate: expirationDate)
         //calc percent of life left

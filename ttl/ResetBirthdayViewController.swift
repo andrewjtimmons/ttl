@@ -11,26 +11,25 @@ class ResetBirthdayViewController: UIViewController {
     
     let prefs = NSUserDefaults.standardUserDefaults()
     
-    
     override func viewDidLoad() {
+        // Load text.
         super.viewDidLoad()
         let txtView = buildTxtView()
         self.view.addSubview(txtView)
         
+        // Load reset birthday button.
         let button   = UIButton(type: UIButtonType.System) as UIButton
         button.frame = CGRectMake(0,0,200,200)
         button.titleLabel!.font =  UIFont(name: "helvetica", size: self.view.frame.size.height/23)
         button.setTitle("Reset Birthday", forState: UIControlState.Normal)
         button.addTarget(self, action: "ResetBirthday:", forControlEvents: UIControlEvents.TouchUpInside)
         button.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height-self.view.frame.size.height/6)
-        
         self.view.addSubview(button)
     }
    
     
     func buildTxtView() -> UITextView {
         //builds textview for asking if user wants to redo birthday
-        
         let navHeight = self.navigationController!.navigationBar.frame.size.height
         
         let txtView = UITextView(frame: CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height))
@@ -64,14 +63,5 @@ class ResetBirthdayViewController: UIViewController {
         prefs.synchronize()
         performSegueWithIdentifier("resetBirthdaySegue", sender: self)
     }
-    
-    /*
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
     
 }

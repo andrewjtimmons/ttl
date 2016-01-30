@@ -3,17 +3,12 @@
 //  ttl
 //
 
-
 import UIKit
 
 class ShowTimeToLiveViewController: UIViewController {
    
     let prefs = NSUserDefaults.standardUserDefaults()
     var txtView = UITextView(frame: CGRectZero)
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
@@ -64,9 +59,9 @@ class ShowTimeToLiveViewController: UIViewController {
         return txtView
     }
     
-       
     func updateView(sender : AnyObject) {
-        //this fires when the app transitions from background to foreground.
+        // This fires when the app transitions from background to foreground. Ensures user has
+        // latest info on their life.
         let text = getUserText()
         txtView.text = text
     }

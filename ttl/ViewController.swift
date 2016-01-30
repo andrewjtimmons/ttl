@@ -11,21 +11,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var birthdayPicker: UIDatePicker!
     @IBOutlet weak var setBirthdayButton: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    
-    }
-
     override func viewDidAppear(animated: Bool) {
         // If the user deletes the app and reinstalls old notifications can be present.
         // This gets rid of them.
         UIApplication.sharedApplication().cancelAllLocalNotifications()
-
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func setBirthdayValue(sender: UIButton) {
@@ -38,7 +27,6 @@ class ViewController: UIViewController {
         
         let birthday: NSDate = cal.dateBySettingHour(0, minute: 0, second: 0, ofDate: birthdayPicker.date, options: NSCalendarOptions())!
         
-        
         prefs.setObject(birthday, forKey:"birthday")
         
         var components = NSDateComponents()
@@ -50,7 +38,6 @@ class ViewController: UIViewController {
         
         performSegueWithIdentifier("birthdaySetSegue", sender: self)
     }
- 
-
+    
 }
 

@@ -15,12 +15,6 @@ class AddNotificationsViewController: UIViewController {
         txtView = buildTxtView("Loading \n\n Take a few deep breaths and check back in a moment")
         
         self.view.addSubview(txtView)
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated);
-        
     }
     
     func buildTxtView(text: String) -> UITextView {
@@ -80,10 +74,8 @@ class AddNotificationsViewController: UIViewController {
         let delay = 3 * Double(NSEC_PER_SEC)
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue()) {
-            
             self.prefs.setObject(true, forKey:"notificationSet")
             self.performSegueWithIdentifier("notificationsSetSegue", sender: self)
-
         }
         
     }
