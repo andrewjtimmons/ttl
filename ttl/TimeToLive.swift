@@ -62,7 +62,7 @@ class TimeToLive {
         if Int(daysToLive)! <= 0 {
             message = "Congrats. Many people do not make it this far. Enjoy the rest of your time to live."
         } else {
-            message = "You have roughly " + daysToLive + " days" + " left to live. You have lived about " + percentOfLifeLivedString + "% of your life."
+            message = "You have roughly " + daysToLive + " days" + " left to live. You have lived about " + percentOfLifeLivedString + "%% of your life."
         }
         
         return (message, futureDate)
@@ -87,6 +87,9 @@ class TimeToLive {
     func caluclatePercentOfLifeLived(daysToLive: String, daysInLife: Float) -> Float {
         // returns percentage of life the user has lived.  
         let percentLived = 100.0 - 100.0*Float(Int(daysToLive)!)/Float(daysInLife)
+        if percentLived < 0 {
+            return 0
+        }
         return percentLived
     }
 
